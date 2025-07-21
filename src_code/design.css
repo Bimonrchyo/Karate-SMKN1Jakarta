@@ -1,0 +1,1018 @@
+/* scroll */
+html{
+        scroll-behavior: smooth;
+    }
+
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Animasi Fade dan Slide */
+@keyframes fadeInOpacity{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+#contentSection1, #contentSection2, #contentSection3, #contentSection4, #contentSection5{
+  animation: fadeInUp 1s ease-in-out;
+}
+
+#contentSection1 > header, #btnJoin, .whatsapp-btn{
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* NON-LOADED STATE (sembunyikan dulu) */
+body:not(.loaded) #contentSection1,
+body:not(.loaded) #contentSection2,
+body:not(.loaded) #contentSection3,
+body:not(.loaded) #contentSection4,
+body:not(.loaded) #contentSection5 {
+  opacity: 0;
+}
+
+/* LOADED STATE (baru fade in) */
+body.loaded #contentSection1,
+body.loaded #contentSection2,
+body.loaded #contentSection3,
+body.loaded #contentSection4,
+body.loaded #contentSection5 {
+  animation: fadeInOpacity 0.8s ease forwards;
+}
+
+#contentSection1,
+#contentSection2,
+#contentSection3,
+#contentSection4,
+#contentSection5 {
+  transition: opacity 0.5s ease;
+}
+
+/* Sticky Navbar */
+nav {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  z-index: 9999999999999 !important;
+  padding: .625rem 0;
+}
+#navBG{
+   background-color: rgba(0, 0, 0, 0.6);
+   backdrop-filter: blur(.375rem);
+   box-shadow: 0 .25rem .75rem rgba(0,0,0,0.2);
+   display: block;
+   padding: .625rem;
+   border-radius: 1.25rem;
+}
+#direction {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.li {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  font-weight: 600;
+}
+
+.li:hover {
+  color: #912727;
+}
+
+.li::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: .125rem;
+  background: #912727;
+  bottom: -0.3125rem;
+  left: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.li:hover::after {
+  width: 100%;
+}
+
+/* Header */
+#kabutoHeader {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: .75rem;
+  text-shadow: .125rem .125rem .375rem rgba(0, 0, 0, 0.5);
+  margin-top: 6.25rem;
+  animation: fadeInUp 1.2s ease;
+  position: relative;
+  left: .625rem;
+}
+
+#subHeader {
+  text-align: center;
+  font-size: 1.375rem;
+  font-weight: 400;
+  animation: fadeInUp 1.4s ease;
+}
+
+#logo, #logoSMK {
+  height: 4.375rem;
+  width: 4.6875rem;
+  position: absolute;
+  top: 1.25rem;
+}
+
+#logo {
+  left: 1.25rem;
+  background-color: white;
+  border-radius: 6.25rem;
+  padding: 0rem;
+  height: 4.375rem;
+  width: 4.6875rem;
+}
+
+#logoSMK {
+  right: 1.25rem;
+}
+
+/* Home Section */
+#section1 {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('WhatsApp Image 2024-09-02 at 17.04.01.jpeg') center/cover no-repeat;
+  position: relative;
+  margin-top: -4.375rem;
+}
+#overlaySection1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+#contentSection1 {
+  z-index: 7777 !important;
+  text-align: center;
+  color: white;
+  animation: fadeInUp 1s ease;
+}
+
+#btnJoin {
+  padding: .75rem 1.75rem;
+  background: #d90429;
+  color: white;
+  border: none;
+  border-radius: .625rem;
+  font-size: 1.125rem;
+  margin-top: 1.25rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#btnJoin:hover {
+  background: #9b031e;
+  transform: scale(1.05);
+}
+
+.whatsapp-btn {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  background: #25d366;
+  padding: .625rem .9375rem;
+  border-radius: .625rem;
+  color: white;
+  font-size: 1rem;
+  box-shadow: 0 .25rem .75rem rgba(0,0,0,0.2);
+  transition: 0.3s;
+  z-index: 2147483647 !important;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+  background: #128c7e;
+}
+
+/* Sections 2–5 General */
+section[id^="section"] {
+  min-height: 100vh;
+  padding: 3.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#contentSection2, #contentSection3, #contentSection4, #contentSection5 {
+  z-index: 2;
+  animation: fadeInUp 1s ease;
+}
+
+#overlaySection2, #overlaySection3, #overlaySection4, #overlaySection5 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#teksSection2, #teksSection3{
+ max-width: 43.75rem;
+ color: white;
+}
+
+/* lebih detail untuk section 2 biar gambar sama teks visi ga nabrak */
+#contentSection2{
+  max-width: 43.75rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -12.5rem;
+}
+
+#teksVisi{
+  position: relative;
+  max-width: 37.5rem;
+  left: -15.625rem;
+  bottom: -6.25rem;
+}
+
+#teksMisi{
+  position: relative;
+  max-width: 37.5rem;
+  right: -23.75rem;
+  bottom: -1.75rem;
+}
+
+#visimisi{
+  position: relative;
+  left: -15.625rem;
+  bottom: -4.375rem;
+}
+.subVisiMisi{
+  position: relative;
+  left: 15rem;
+}
+
+.gambarSection2{
+  height: 18.125rem;
+  width: auto;
+  border-radius: .75rem;
+  margin-left: 2.5rem 2.5rem;  
+  position: relative;
+} 
+
+#gambarSection2Ke1{
+  right: 21.6875rem;
+  top: 2.5rem;
+  width: 31.25rem;
+}
+
+#gambarSection2Ke2{
+  left: 19.375rem;
+  bottom: 15.5rem;
+  width: 31.25rem;
+}
+
+#gambarSection2Ke3{
+  right: .9375rem;
+  bottom: 13.125rem;
+}
+
+/* lebih detail untuk section 3 */
+#contentSection3{
+  margin-top: -12.5rem;
+  margin-bottom: -6.25rem;
+}
+#gambarSection3{
+  height: 18.75rem;
+  width: auto;
+  border-radius: .75rem;
+  margin-left: 2.5rem;
+}
+
+#teksSection3{
+  position: relative;
+  bottom: .625rem;
+}
+
+#juaraSection3{
+  position: relative;
+  left: 1.875rem;
+}
+
+#gambarSection3{
+  position: relative;
+  top: 2.8125rem;
+  left: 3.125rem;
+  align-items: center;
+}
+
+/* lebih detail untuk section 4 */
+#section4{
+   min-height: 120vh;
+   padding: 10rem 1.25rem;
+}
+
+#section2 {
+  background: linear-gradient(to right, #1c1c1c, #2e2e2e);
+  color: white;
+}
+
+#section3 {
+  background: linear-gradient(to right, #430000, #7e0000);
+  color: white;
+}
+
+#section4 {
+  background: linear-gradient(to right, #2a2d2b, #6f7670);
+  color: white;
+}
+
+#section5 {
+  background: linear-gradient(to right, #1a237e, #3f51b5);
+  color: white;
+  flex-direction: column;
+}
+
+/* Table */
+#tableSection4 {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  background-color: rgba(255,255,255,0.05);
+  font-size: 1.125rem;
+  border: .1875rem solid white;
+  border-collapse: collapse;
+  margin: -8rem 0rem;
+}
+
+#tableSection4 th, #tableSection4 td {
+  border: .125rem solid white;
+  padding: 2.5rem 2.5rem;
+  text-align: center;
+}
+
+/* FAQ */
+#faq {
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.faqQuestionSection5{
+  background: white;
+  color: black;
+  width: 100%;
+  padding: 1.125rem 1.25rem;
+  text-align: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: .75rem;
+  margin-bottom: .625rem;
+  transition: background 0.3s, box-shadow 0.3s;
+  font-size: 1rem;
+  font-weight: 600;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faqQuestionSection5::after{
+  content: '▼';
+  font-size: .875rem;
+  transition: transform 0.3s;
+}
+
+.faqQuestionSection5.active::after{
+  transform: rotate(180deg);
+}
+
+.faqQuestionSection5:hover{
+  background: #f0f0f0;
+  box-shadow: 0 .25rem .75rem rgba(0,0,0,0.1);
+}
+
+.faqAnswerSection5 {
+  background: #000000;
+  color: white;
+  padding: .9375rem 1.25rem;
+  display: none;
+  border-radius: 0 0 .75rem .75rem;
+  font-size: .9375rem;
+  animation: fadeIN 0.3s ease;
+  position: relative;
+  bottom: 1.125rem;
+}
+
+/* animasi untuk faq */
+@keyframes fadeIn{
+  from{opacity: 0; transform: translateY(-0.3125rem);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* footer */
+#footer {
+  background-color: #111;
+  color: white;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .875rem;
+}
+
+#footerContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 62.5rem;
+  gap: 1.25rem;
+}
+
+#footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+#footerLogo img {
+  height: 3.125rem;
+  width: auto;
+}
+
+#kabutoSection5{
+  background-color: white;
+  border-radius: 50%;
+  padding: 0rem;
+}
+
+#footerLogo p {
+  margin: 0;
+  font-weight: 300;
+}
+
+#footerSocial {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  position: relative;
+  right: 3.75rem;
+}
+
+#footerSocial a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+#footerSocial a i {
+  margin-right: .5rem;
+  font-size: 1.125rem;
+}
+
+#footerSocial a:hover {
+  color: #ff4c4c;
+}
+
+/* ----------Media Query---------- */
+
+/* Media query untuk mobile kecil */
+@media (max-width: 375px){
+  
+  #kabutoHeader {
+    font-size: 2.5rem;
+    letter-spacing: .25rem;
+    margin-top: 4rem;
+  }
+  #K{
+    left: -0.2188rem;
+  }
+  #subHeader {
+    font-size: 1rem;
+    margin-top: .5rem;
+  }
+
+  #direction {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: -5px;
+  font-size:smaller;
+  }
+  
+  /* Logo */
+  #logo, #logoSMK {
+    height: 3rem;
+    width: 3rem;
+    top: 1rem;
+  }
+
+  #logo{
+    left: 0rem;
+  }
+
+  #logoSMK{
+    right: 0rem;
+  }
+  
+  #section1 {
+  background-image: 
+  url('WhatsApp Image 2024-09-02 at 17.04.01.jpeg'),
+  linear-gradient(to bottom, #bababa, #1c1c1c);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  height: auto;
+  padding: 2rem 1rem;
+  }
+
+  /* Button Join diperkecil */
+  #btnJoin {
+    font-size: 1rem;
+    padding: .5rem 1.25rem;
+  }  
+
+  /* biar button whatsapp ga ganggu */
+  .whatsapp-btn{
+    right: 0rem;
+    padding: .4375rem .625rem;
+  }
+
+  /* Konten Section 2 lebih rapi */
+  #contentSection2 {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  #teksVisi,
+  #visimisi,
+  .subVisiMisi {
+    position: static;
+    max-width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  #teksMisi{
+    left: 1.25rem;
+    bottom: .9375rem;
+  }
+
+  .gambarSection2 {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    position: static;
+  }
+
+  #gambarSection2Ke1,
+  #gambarSection2Ke2,
+  #gambarSection2Ke3 {
+    position: static;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  /* Section 3 Penyesuaian */
+  #gambarSection3 {
+    position: static;
+    width: 100%;
+    height: 13.75rem;
+    margin: -5rem 0rem -20rem 0rem;
+  }
+
+  #teksSection3,
+  #juaraSection3 {
+    position: static;
+    display: block;
+    text-align: center;
+    margin-bottom: -3rem;
+  }
+
+  #teksSection3{
+    margin-top: -15.625rem;
+  }
+
+  #juaraSection3{
+   margin-left: .625rem;
+  }
+
+  /* Section 4 */
+  #tableSection4{
+    max-width: 100%;
+    margin: -25rem 0rem;
+    size: 100%;
+  }
+  #contentSection4{
+    align-items: center;
+    justify-content: center;
+  }
+
+  #tableSection4 th, #tableSection4 td{
+    padding: .9375rem .75rem;
+  }
+
+  /* FAQ font size biar lebih readable */
+  .faqQuestionSection5 {
+    font-size: .95rem;
+    padding: 1rem;
+  }
+
+  .faqAnswerSection5 {
+    font-size: .875rem;
+  }
+
+  /* Footer Responsive */
+  #footerContent {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #footerLogo img {
+    height: 2.5rem;
+  }
+
+  #footerSocial {
+    right: 0;
+    justify-content: center;
+  }
+
+  #footerSocial a {
+    font-size: .875rem;
+  }
+}
+
+/* Media Query iPhone 11 Portrait (414px max) */
+@media (max-width: 414px){
+
+  
+  #kabutoHeader {
+    font-size: 2.5rem;
+    letter-spacing: .25rem;
+    margin-top: 4rem;
+  }
+  #K{
+    left: -0.2188rem;
+  }
+  #subHeader {
+    font-size: 1rem;
+    margin-top: .5rem;
+  }
+
+  #direction {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 10px;
+  font-size:small;
+  }
+  
+  /* Logo */
+  #logo, #logoSMK {
+    height: 3rem;
+    width: 3rem;
+    top: 1rem;
+  }
+
+  #logo{
+    left: 0rem;
+  }
+
+  #logoSMK{
+    right: 0rem;
+  }
+  
+  #section1 {
+  background-image: 
+  url('WhatsApp Image 2024-09-02 at 17.04.01.jpeg'),
+  linear-gradient(to bottom, #bababa, #1c1c1c);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  height: auto;
+  padding: 2rem 1rem;
+  }
+
+  /* Button Join diperkecil */
+  #btnJoin {
+    font-size: 1rem;
+    padding: .5rem 1.25rem;
+  }  
+
+  /* biar button whatsapp ga ganggu */
+  .whatsapp-btn{
+    right: 0rem;
+    padding: .4375rem .625rem;
+  }
+
+  /* Konten Section 2 lebih rapi */
+  #contentSection2 {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  #teksVisi,
+  #visimisi,
+  .subVisiMisi {
+    position: static;
+    max-width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  #teksMisi{
+    left: 1.25rem;
+    bottom: .9375rem;
+  }
+
+  .gambarSection2 {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    position: static;
+  }
+
+  #gambarSection2Ke1,
+  #gambarSection2Ke2,
+  #gambarSection2Ke3 {
+    position: static;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  /* Section 3 Penyesuaian */
+  #gambarSection3 {
+    position: static;
+    width: 100%;
+    height: 13.75rem;
+    margin: -5rem 0rem -20rem 0rem;
+  }
+
+  #teksSection3,
+  #juaraSection3 {
+    position: static;
+    display: block;
+    text-align: center;
+    margin-bottom: -3rem;
+  }
+
+  #teksSection3{
+    margin-top: -15.625rem;
+  }
+
+  #juaraSection3{
+   margin-left: .625rem;
+  }
+
+  /* Section 4 */
+  #tableSection4{
+    max-width: 100%;
+    margin: -25rem 0rem;
+  }
+
+  #tableSection4 th, #tableSection4 td{
+    padding: 1.25rem 1.0625rem;
+  }
+
+  /* FAQ font size biar lebih readable */
+  .faqQuestionSection5 {
+    font-size: .95rem;
+    padding: 1rem;
+  }
+
+  .faqAnswerSection5 {
+    font-size: .875rem;
+  }
+
+  /* Footer Responsive */
+  #footerContent {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #footerLogo img {
+    height: 2.5rem;
+  }
+
+  #footerSocial {
+    right: 0;
+    justify-content: center;
+  }
+
+  #footerSocial a {
+    font-size: .875rem;
+  }
+}
+
+
+/* Media Query Untuk Device Lebih Besar Portrait (415px-500px) */
+@media (min-width: 415px) and (max-width: 500px) {
+    #kabutoHeader {
+    font-size: 2.5rem;
+    letter-spacing: .25rem;
+    margin-top: 4rem;
+  }
+  #K{
+    left: -0.2188rem;
+  }
+  #subHeader {
+    font-size: 1rem;
+    margin-top: .5rem;
+  }
+
+  #direction {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: .625rem;
+  font-size:medium;
+  }
+  
+  /* Logo */
+  #logo, #logoSMK {
+    height: 3rem;
+    width: 3rem;
+    top: 1rem;
+  }
+
+  #logo{
+    left: 0rem;
+  }
+
+  #logoSMK{
+    right: 0rem;
+  }
+  
+  #section1 {
+  background-image: 
+  url('WhatsApp Image 2024-09-02 at 17.04.01.jpeg'),
+  linear-gradient(to bottom, #bababa, #1c1c1c);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  height: auto;
+  padding: 2rem 1rem;
+  }
+
+  /* Button Join diperkecil */
+  #btnJoin {
+    font-size: 1rem;
+    padding: .5rem 1.25rem;
+  }  
+
+  /* biar button whatsapp ga ganggu */
+  .whatsapp-btn{
+    right: 0rem;
+    padding: .4375rem .625rem;
+  }
+
+  /* Konten Section 2 lebih rapi */
+  #contentSection2 {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  #teksVisi,
+  #visimisi,
+  .subVisiMisi {
+    position: static;
+    max-width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  #teksMisi{
+    left: 1.25rem;
+    bottom: .9375rem;
+  }
+
+  .gambarSection2 {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    position: static;
+  }
+
+  #gambarSection2Ke1,
+  #gambarSection2Ke2,
+  #gambarSection2Ke3 {
+    position: static;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  /* Section 3 Penyesuaian */
+  #gambarSection3 {
+    position: static;
+    width: 100%;
+    height: 13.75rem;
+    margin: -5rem 0rem -20rem 0rem;
+  }
+
+  #teksSection3,
+  #juaraSection3 {
+    position: static;
+    display: block;
+    text-align: center;
+    margin-bottom: -3rem;
+  }
+
+  #teksSection3{
+    margin-top: -15.625rem;
+  }
+
+  #juaraSection3{
+   margin-left: .625rem;
+  }
+
+  /* Section 4 */
+  #tableSection4{
+    max-width: 100%;
+    margin: -25rem 0rem;
+  }
+
+  #tableSection4 th, #tableSection4 td{
+    padding: 1.25rem 1.0625rem;
+  }
+
+  /* FAQ font size biar lebih readable */
+  .faqQuestionSection5 {
+    font-size: .95rem;
+    padding: 1rem;
+  }
+
+  .faqAnswerSection5 {
+    font-size: .875rem;
+  }
+
+  /* Footer Responsive */
+  #footerContent {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #footerLogo img {
+    height: 2.5rem;
+  }
+
+  #footerSocial {
+    right: 0;
+    justify-content: center;
+  }
+
+  #footerSocial a {
+    font-size: .875rem;
+  }
+}
